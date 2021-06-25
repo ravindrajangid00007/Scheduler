@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap");
+html, .titles {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #171717;
+  color: #EDEDED; }
+
+.add {
+  width: 400px;
+  max-height: 97vh;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll; }
+
+.add-task-btn {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; }
+
+.fa-calendar-plus {
+  font-size: 2rem;
+  padding-left: 12px;
+  font-family: 'Source Sans Pro', sans-serif; }
+
+#calender {
+  height: auto;
+  min-width: 30%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr); }
+
+.single-day {
+  flex-grow: 1; }
+
+.date-day {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px; }
+
+.day {
+  font-size: 1.2rem; }
+
+.date {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 50%; }
+
+.date:hover {
+  background-color: #DA0037;
+  cursor: pointer; }
+
+#time-container {
+  display: flex;
+  flex-direction: column; }
+
+.presentation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-left: 2px solid gray;
+  position: sticky;
+  height: 80vh;
+  overflow: scroll;
+  padding-top: 20px; }
+
+.time {
+  height: 60.5px;
+  width: 50px;
+  padding-right: 12px;
+  position: relative;
+  text-align: right; }
+
+.task-container {
+  width: 100%;
+  padding-right: 12px;
+  display: block;
+  margin-top: -10px; }
+
+.task {
+  height: 60px;
+  padding-right: 12px;
+  position: relative;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: .5px solid gray;
+  box-sizing: border-box; }
+
+.task-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px; }
+
+.calender-container {
+  display: flex;
+  justify-content: space-between; }
+
+#search-teacher-form {
+  font-size: 1.5rem;
+  background-color: transparent;
+  margin: 20px 0px; }
+
+.search {
+  width: 64%;
+  padding: 8px 15px;
+  background: #E8F0F2;
+  border: 0px solid #c8cdce; }
+
+.search-button {
+  position: relative;
+  padding: 6px 15px;
+  left: -8px;
+  border: 2px solid #207cca;
+  background-color: #207cca;
+  color: #fafafa; }
+
+.search-button:hover {
+  background-color: #DA0037;
+  color: #207cca; }
+
+label {
+  font-size: 2rem; }
+
+#teacher-name {
+  list-style: none;
+  height: auto;
+  width: 200px; }
+  #teacher-name li {
+    font-size: 1.4rem; }
+
+.fa-user-plus {
+  font-size: 2rem; }
+
+.popups {
+  overflow: hidden; }
+
+.original {
+  height: 0px;
+  width: 0px;
+  overflow: hidden; }
+
+#task-create-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0px 0px 40px black;
+  font-size: 24px;
+  font-family: Arial; }
+  #task-create-form input, #task-create-form select {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; }
+
+.highlight {
+  height: 380px;
+  width: 400px;
+  background-color: white;
+  z-index: 99; }
+
+.teacher-create-form {
+  display: none;
+  position: absolute;
+  overflow: hidden; }
+
+.add-teacher {
+  position: relative; }
+
+.show-form {
+  display: flex;
+  height: 150px;
+  width: 200px;
+  z-index: 55;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  top: -112px;
+  left: 175px;
+  background: #1E9600;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF0000, #FFF200, #1E9600);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF0000, #FFF200, #1E9600);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px; }
+  .show-form input {
+    background-color: transparent;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    font-size: 1rem;
+    border-bottom: 2px solid #1d1414; }
+
+.teacher-list {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px; }
+
+#top-date {
+  font-size: 2rem;
+  margin-left: 25px; }
+
+.task:hover {
+  background-color: #444444; }
+
+.buttons {
+  width: 70%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+  .buttons #add-task-button, .buttons #cancel-task-button {
+    font-size: 1.4rem;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px 20px; }
+
+.fas:hover {
+  color: blue; }
+
+::-webkit-scrollbar {
+  width: 7px; }
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.show-tasks {
+  height: 83%;
+  width: 71%; }
+
+.all-task-of-teacher {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-36%, -50%);
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 40px #39A2DB;
+  z-index: 99;
+  overflow: scroll; }
+
+.close-tasks {
+  width: 15%;
+  font-size: 1.5rem;
+  padding: 5px 0px;
+  border-radius: 10px;
+  background-color: #39A2DB;
+  float: right; }

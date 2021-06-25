@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedular</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="calender-container">
+        <div class="add">
+            <div class="add-task-btn">
+                <i class="fas fa-calendar-plus"> <span class="titles">ADD SCHEDULE</ class="titles"></i>
+            </div>
+            <div id="calender">
+                <div class="day">
+                    Sun
+                </div>
+                <div class="day">
+                    Mon
+                </div>
+                <div class="day">
+                    Thu
+                </div>
+                <div class="day">
+                    Wed
+                </div>
+                <div class="day">
+                    Fri
+                </div>
+                <div class="day">
+                    Sat
+                </div>
+                <div class="day">
+                    Sun
+                </div>
+
+                <% for(let i=1 ; i <=31 ; i++) {%>
+                    <div class="date" id="<%=i%>" date="<%=i%>-06-2021">
+                        <%= i %>
+                    </div>
+                    <%}%>
+            </div>
+            <form action="/get-tasks" method="GET" id="search-teacher-form">
+                <select name="teacher_uuid" id="teacher-selector" class="search">
+                    <% for(teacher of teacher_list) {%>
+                        <option value="<%=teacher.uuid%>">
+                            <%=teacher.name%>
+                        </option>
+                        <% } %>
+                </select>
+                <button type="button" class="search-button">search</button>
+            </form>
+            <label for="teacher-name">Teachers List</label>
+            <ul id="teacher-name">
+                <% for(teacher of teacher_list) {%>
+                    <li id="teacher-<%=teacher.uuid%>" class="teacher-list">
+                        <%=teacher.name%>
+                            <a href="/delete-teacher/<%=teacher.uuid%>"><i class="far fa-trash-alt"></i></a>
+                    </li>
+
+                    <%}%>
+            </ul>
+            <div class="add-teacher">
+                <i class="fas fa-user-plus" id="add-teacher"><span class="titles">ADD TEACHER</span></i>
+                <form action="/create-teacher" method="POST" class="teacher-create-form">
+                    <input type="text" name="name" placeholder="Enter teacher name" required>
+                    <input type="email" name="email" placeholder="Enter teacher's email" required>
+                    <input type="submit" value="add">
+                </form>
+            </div>
+        </div>
+        <div class="single-day">
+            <div class="date-day">
+                <div id="top-date">
+                    Date
+                </div>
+            </div>
+            <div class="presentation">
+                <div class="time-container">
+                    <% for(e of time_list) {%>
+                        <div class="time">
+                            <span>
+                                <%=e%>
+                            </span>
+                        </div>
+                        <%}%>
+                </div>
+                <div class="task-container">
+
+                    <% for(let time of time_list) {%>
+                        <div class="task" id="<%=time%>">
+                            <div class="scheduler-image" style="margin:auto;">
+                                <h1>scheduler</h1>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup">
+        <form action="" class="original" id="task-create-form">
+            <input type="text" name="content" placeholder="Add Task" required>
+            <select name="teacherUuid" id="teacher-name-selector">
+                <% for(teacher of teacher_list) {%>
+                    <option value="<%=teacher.uuid%>">
+                        <%=teacher.name%>
+                    </option>
+                    <% } %>
+            </select>
+            <input type="text" name="date" placeholder="dd-mm-yyyy" id="date-select" ,required>
+            <select name="time" id="time-selector" required>
+                <% for(time of time_list ) {%>
+                    <option value="<%=time%>">
+                        <%=time%>
+                    </option>
+                    <% } %>
+            </select>
+            <div class="buttons">
+                <button type="button" id="add-task-button">Add</button>
+                <button type="button" id="cancel-task-button">Cancel</button>
+            </div>
+
+        </form>
+        <div class="all-task-of-teacher original">
+            <button type="button" class="close-tasks">close</button>
+            <div class="teacher-task-container">
+                <ul class="task-list">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

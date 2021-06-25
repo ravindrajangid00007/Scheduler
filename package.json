@@ -1,0 +1,19 @@
+{
+  "name": "sheduler",
+  "version": "1.0.0",
+  "description": "teachers's task scheduler",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ravindrajangid00007@gamil.com",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "node-sass-middleware": "^0.11.0",
+    "sequelize": "^6.6.2"
+  }
+}
