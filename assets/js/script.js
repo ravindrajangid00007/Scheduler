@@ -14,7 +14,7 @@ $('.date').click(function () {
     $('#top-date').text(date);
 
     //ajax get request for tasks list of a day
-    $.get("http://127.0.01:8000/get-task-of-day/" + date)
+    $.get("/get-task-of-day/" + date)
         .done(function (tasks) {
             $('.task').empty();
             console.log("tasks at jquery",tasks);
