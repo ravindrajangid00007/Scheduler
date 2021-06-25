@@ -16,7 +16,7 @@ $('.date').click(function () {
     //ajax get request for tasks list of a day
     $.get("http://127.0.01:8000/get-task-of-day/" + date)
         .done(function (tasks) {
-            $('.task').html("");
+            $('.task').empty();
             console.log("tasks at jquery",tasks);
             if (tasks.length > 0) {
                 for (task of tasks) {
@@ -35,8 +35,7 @@ $('.date').click(function () {
 });
 
 function presentation(task) {
-    return $(`
-    <div id="task-${task.uuid}" class="task-info-container">
+    return $(`<div id="task-${task.uuid}" class="task-info-container">
         <span>${task.content}</span>
         <small>${task.Teacher.name}</small>
         <a href="/delete-task/${task.uuid}" class="task-delete-links"><i class="far fa-trash-alt"></i></a>
