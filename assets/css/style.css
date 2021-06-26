@@ -186,7 +186,7 @@ label {
 
 .show-form {
   display: flex;
-  height: 150px;
+  height: 170px;
   width: 200px;
   z-index: 55;
   flex-direction: column;
@@ -194,13 +194,9 @@ label {
   align-items: center;
   top: -112px;
   left: 175px;
-  background: #1E9600;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FF0000, #FFF200, #1E9600);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FF0000, #FFF200, #1E9600);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 15px; }
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 40px #39A2DB; }
   .show-form input {
     background-color: transparent;
     color: black;
@@ -211,6 +207,10 @@ label {
     float: right;
     font-size: 1rem;
     border-bottom: 2px solid #1d1414; }
+  .show-form i {
+    color: #171717;
+    align-self: flex-end;
+    margin: 5px 8px 0px 0px; }
 
 .teacher-list {
   display: flex;
@@ -286,3 +286,33 @@ label {
 
 .fa-trash-alt {
   color: #DA0037; }
+
+@media screen and (max-width: 1150) {
+  .add {
+    width: 350px; }
+  .show-form {
+    left: 130px; } }
+
+@media screen and (max-width: 1050) {
+  .add {
+    width: 325px; }
+  .show-form {
+    left: 110px; } }
+
+@media screen and (max-width: 900) {
+  .add {
+    width: 300px; }
+  .show-form {
+    left: 85px; } }
+
+@media screen and (max-width: 800) {
+  .add {
+    width: 285px; }
+  .show-form {
+    left: 70px; } }
+
+@media screen and (max-width: 700) {
+  .add {
+    width: 278px; }
+  .show-form {
+    left: 60px; } }

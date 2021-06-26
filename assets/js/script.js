@@ -9,6 +9,8 @@ function toggleTasksDiv() {
 }
 $('#add-teacher').click(toggleTeacherForm);
 
+$('.fa-times').click(toggleTeacherForm);
+
 $('.date').click(function () {
     let date = $(this).attr('date')
     $('#top-date').text(date);

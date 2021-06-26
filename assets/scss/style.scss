@@ -213,7 +213,7 @@ label {
 
 .show-form {
     display: flex;
-    height: 150px;
+    height: 170px;
     width: 200px;
     z-index: 55;
     flex-direction: column;
@@ -221,10 +221,9 @@ label {
     align-items: center;
     top: -112px;
     left: 175px;
-    background: #1E9600;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FF0000, #FFF200, #1E9600);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: white;
     border-radius: 15px;
+    box-shadow: 0px 0px 40px #39A2DB;
     input {
         background-color: transparent;
         color: black;
@@ -235,6 +234,11 @@ background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+
         float: right;
         font-size: 1rem;
         border-bottom: 2px solid rgb(29, 20, 20);
+    }
+    i {
+        color: $back-color;
+        align-self: flex-end;
+        margin: 5px 8px 0px 0px;
     }
 }
 
@@ -335,4 +339,55 @@ background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+
   
 .fa-trash-alt {
     color: $hover-color;
+}
+
+
+@media screen and (max-width: 1150) {
+    .add {
+        width: 350px;
+    }
+
+    .show-form {
+        left: 130px
+    }
+}
+
+@media screen and (max-width: 1050) {
+    .add {
+        width: 325px;
+    }
+
+    .show-form {
+        left: 110px
+    }
+}
+
+@media screen and (max-width: 900) {
+    .add {
+        width: 300px;
+    }
+
+    .show-form {
+        left: 85px
+    }
+}
+
+@media screen and (max-width: 800) {
+    .add {
+        width: 285px;
+    }
+
+    .show-form {
+        left: 70px
+    }
+}
+
+@media screen and (max-width: 700) {
+    .add {
+        width: 278px;
+    }
+
+    .show-form {
+        left: 60px
+    }
 }
