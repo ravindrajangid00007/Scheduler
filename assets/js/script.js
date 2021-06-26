@@ -47,13 +47,14 @@ function presentation(task) {
 let deleteTask = function (deleteLink) {
     $(deleteLink).click(function (event) {
         event.preventDefault();
+        event.stopPropagation();
         let url = $(deleteLink).prop('href');
         // console.log(url);
         $.get(url)
             .done((data) => {
                 // console.log(data);
                 $(`#task-${data.task_uuid}`).remove();
-                $(`#task-list-${task.uuid}`).remove();
+                $(`#task-list-${data.task_uuid}`).remove();
             })
             .fail((err) => {
                 console.log(err.responseText);

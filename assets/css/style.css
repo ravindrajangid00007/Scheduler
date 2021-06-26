@@ -266,8 +266,9 @@ label {
 .task-list-items {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center; }
+  justify-content: space-between;
+  align-items: center;
+  width: 250px; }
   .task-list-items div {
     padding: 5px 8px; }
   .task-list-items a {

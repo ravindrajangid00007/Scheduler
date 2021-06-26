@@ -305,9 +305,9 @@ background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+
 .task-list-items {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-
+    width: 250px;
     div {
         padding: 5px 8px;
     }
