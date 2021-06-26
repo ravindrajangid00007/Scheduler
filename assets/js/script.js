@@ -135,7 +135,7 @@ function listDom(task) {
     <div>
     ${task.time}
     </div>
-    <a href="/delete-task/${task.uuid}" class="task-delete-links">X</a>
+    <a href="/delete-task/${task.uuid}" class="task-delete-links"><i class="far fa-trash-alt"></i></a>
 </li>`);
 }
 

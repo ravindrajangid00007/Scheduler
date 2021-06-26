@@ -6,6 +6,20 @@ html,.titles {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: $back-color;
     color:$font-color;
+} 
+.fas {
+    font-size: 2rem;
+    padding-left: 12px;
+    cursor: pointer;
+    span {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    span:hover {
+        color: $hover-color;
+    }
+}
+.fas:hover {
+    color: $hover-color;
 }
 .add {
     width: 400px;
@@ -21,11 +35,7 @@ html,.titles {
     align-items: center;
     flex-shrink: 0;
 }
-.fa-calendar-plus {
-    font-size: 2rem;
-    padding-left: 12px;
-    font-family: 'Source Sans Pro', sans-serif;
-}
+
 #calender {
     height: auto;
     min-width: 30%;
@@ -72,7 +82,7 @@ html,.titles {
     justify-content: space-between;
     // border-left: 2px solid gray;
     position: sticky;
-    height: 80vh;
+    height: 77vh;
     overflow: scroll;
     padding-top: 20px;
 
@@ -123,7 +133,7 @@ html,.titles {
 
 .search {
     width: 64%;
-    padding:8px 15px;
+    padding:7px 15px;
     background: #E8F0F2;
     border:0px solid #c8cdce;
 }
@@ -151,9 +161,7 @@ label {
     }
 }
 
-.fa-user-plus {
-    font-size: 2rem;
-}
+
 .popups {
     overflow: hidden;
 }
@@ -259,9 +267,6 @@ background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+
     }
 }
 
-.fas:hover {
-    color: blue;
-}
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -291,16 +296,43 @@ background: linear-gradient(to right, #FF0000, #FFF200, #1E9600); /* W3C, IE 10+
     z-index: 99;
     overflow: scroll;
   }
-  .teacher-task-container {
+//   .teacher-task-container {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
 
-  }
+//   }
+.task-list-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    div {
+        padding: 5px 8px;
+    }
+    a {
+        color: #171717;
+    }
+}
 
   .close-tasks {
-    width: 15%;
+    width: auto;
     font-size: 1.5rem;
-    padding: 5px 0px;
+    padding: 5px;
     border-radius: 10px;
-    background-color: #39A2DB;
+    // background-color: #39A2DB;
     float: right;
     // position: fixed;
   }
+
+  .teacher-list {
+      a {
+          color: white;
+      }
+  }
+
+  
+.fa-trash-alt {
+    color: $hover-color;
+}

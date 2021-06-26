@@ -102,16 +102,23 @@ module.exports.getTaskOfDay = async function (req, res) {
     
 }
 module.exports.deleteTeacher = async function (req, res) {
-    let uuid = req.params.uuid;
-    console.log(uuid);
-    let teacher = await Teacher.destroy({
+    let uuidd = req.params.uuid;
+    console.log(uuidd);
+
+    let teacher = await Teacher.findOne({
         where: {
-            uuid: uuid
+            uuid: uuidd
         }
     });
+    console.log("tacjher at homecontroller" ,teacher);
     let tasks =  await Task.destroy({
         where: {
             teacherId: teacher.id
+        }
+    });
+    await Teacher.destroy({
+        where: {
+            uuid: uuidd
         }
     });
     return res.redirect('back');

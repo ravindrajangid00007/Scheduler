@@ -4,6 +4,18 @@ html, .titles {
   background-color: #171717;
   color: #EDEDED; }
 
+.fas {
+  font-size: 2rem;
+  padding-left: 12px;
+  cursor: pointer; }
+  .fas span {
+    font-family: 'Source Sans Pro', sans-serif; }
+  .fas span:hover {
+    color: #DA0037; }
+
+.fas:hover {
+  color: #DA0037; }
+
 .add {
   width: 400px;
   max-height: 97vh;
@@ -16,11 +28,6 @@ html, .titles {
   display: flex;
   align-items: center;
   flex-shrink: 0; }
-
-.fa-calendar-plus {
-  font-size: 2rem;
-  padding-left: 12px;
-  font-family: 'Source Sans Pro', sans-serif; }
 
 #calender {
   height: auto;
@@ -62,7 +69,7 @@ html, .titles {
   flex-direction: row;
   justify-content: space-between;
   position: sticky;
-  height: 80vh;
+  height: 77vh;
   overflow: scroll;
   padding-top: 20px; }
 
@@ -107,7 +114,7 @@ html, .titles {
 
 .search {
   width: 64%;
-  padding: 8px 15px;
+  padding: 7px 15px;
   background: #E8F0F2;
   border: 0px solid #c8cdce; }
 
@@ -132,9 +139,6 @@ label {
   width: 200px; }
   #teacher-name li {
     font-size: 1.4rem; }
-
-.fa-user-plus {
-  font-size: 2rem; }
 
 .popups {
   overflow: hidden; }
@@ -232,9 +236,6 @@ label {
     font-family: 'Courier New', Courier, monospace;
     padding: 5px 20px; }
 
-.fas:hover {
-  color: blue; }
-
 ::-webkit-scrollbar {
   width: 7px; }
 
@@ -262,10 +263,25 @@ label {
   z-index: 99;
   overflow: scroll; }
 
+.task-list-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; }
+  .task-list-items div {
+    padding: 5px 8px; }
+  .task-list-items a {
+    color: #171717; }
+
 .close-tasks {
-  width: 15%;
+  width: auto;
   font-size: 1.5rem;
-  padding: 5px 0px;
+  padding: 5px;
   border-radius: 10px;
-  background-color: #39A2DB;
   float: right; }
+
+.teacher-list a {
+  color: white; }
+
+.fa-trash-alt {
+  color: #DA0037; }
