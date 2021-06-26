@@ -11,6 +11,7 @@ route.get('/get-tasks' , homeController.getTasks);
 route.get('/delete-teacher/:uuid' , homeController.deleteTeacher);
 route.get('/get-task-of-day/:date' , homeController.getTaskOfDay);
 route.get('/delete-task/:uuid' , homeController.deleteTask);
+route.get('/get-tasks-overlapping' , homeController.getTasksOverlapping);
 
 
 

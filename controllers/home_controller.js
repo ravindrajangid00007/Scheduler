@@ -30,8 +30,6 @@ module.exports.fetchTeacher = async function (req, res) {
             where: { uuid },
             include: [Task]
         });
-
-        console.log("teacher=", teacher);
         return res.json(teacher);
     } catch (err) {
         console.log("ERROR", err);
@@ -66,8 +64,6 @@ module.exports.createTask = async function (req, res) {
 module.exports.getTasks = async function(req, res) {
     try {
         let teacherUuid = req.query.teacher_uuid;
-
-        console.log("uuid at home controller " , teacherUuid);
         let teacher = await Teacher.findOne({ 
             where: { uuid: teacherUuid}
         });
@@ -86,9 +82,22 @@ module.exports.getTasks = async function(req, res) {
     }
     
 }
+
+module.exports.getTasksOverlapping = async function(req , res) {
+    let teacherUuid= req.query.teacherUuid;
+        let teacher = await Teacher.findOne({ 
+            where: { uuid: teacherUuid}
+        });
+        let tasks = await Task.findAll({
+            where: {teacherId: teacher.id}
+        })
+        if(req.xhr){
+            return res.status(200).json(tasks);
+        }
+        return res.redirect('back');
+}
 module.exports.getTaskOfDay = async function (req, res) {
     try {
-        console.log(req.params.date);
     let tasks = await Task.findAll(
         {
             include: [Teacher],
@@ -103,14 +112,11 @@ module.exports.getTaskOfDay = async function (req, res) {
 }
 module.exports.deleteTeacher = async function (req, res) {
     let uuidd = req.params.uuid;
-    console.log(uuidd);
-
     let teacher = await Teacher.findOne({
         where: {
             uuid: uuidd
         }
     });
-    console.log("tacjher at homecontroller" ,teacher);
     let tasks =  await Task.destroy({
         where: {
             teacherId: teacher.id

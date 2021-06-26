@@ -17,7 +17,7 @@ $('.date').click(function () {
     $.get("/get-task-of-day/" + date)
         .done(function (tasks) {
             $('.task').empty();
-            console.log("tasks at jquery",tasks);
+            // console.log("tasks at jquery", tasks);
             if (tasks.length > 0) {
                 for (task of tasks) {
                     let dom = presentation(task);
@@ -48,10 +48,10 @@ let deleteTask = function (deleteLink) {
     $(deleteLink).click(function (event) {
         event.preventDefault();
         let url = $(deleteLink).prop('href');
-        console.log(url);
+        // console.log(url);
         $.get(url)
             .done((data) => {
-                console.log(data);
+                // console.log(data);
                 $(`#task-${data.task_uuid}`).remove();
                 $(`#task-list-${task.uuid}`).remove();
             })
@@ -70,24 +70,49 @@ if (links.length > 0) {
 
 $('#add-task-button').click(function () {
     let formData = $('#task-create-form').serialize();
-    console.log("form data = =====", formData);
-    //todo overlapping condition
-    $.post('/create-task', formData)
-        .done(function (data) {
-            console.log(data);
-            toggleTaskForm();
-            let date = $('#top-date').text();
-            if (date == data.task.date) {
-                let newTask = presentation(data.task);
-                $(`#${data.task.time}`).prepend(newTask);
-                deleteTask($(' .task-delete-links', newTask));
-            }
 
-        })
-        .fail((err) => {
-            console.log(err.responseText);
-        });
+    var time = $('#time-selector').children("option:selected").val();
+    let date = $('#date-select').val();
+    let teacherOverlapExist = false;
+    var promise = new Promise((resolve, reject) => {
+        $.get('/get-tasks-overlapping', formData)
+            .done(function (tasks) {
+                for (task of tasks) {
+                    if (task.time == time && task.date == date) {
+                        //message teacher class is overlapping 
+                        teacherOverlapExist = true;
+                        toggleTaskForm();
+                    }
+                }
+                resolve();
+            })
+            .fail((err) => {
+                console.log(err.responseText);
+            });
+
+    });
+    promise.then(() => {
+        if (!teacherOverlapExist) {
+            $.post('/create-task', formData)
+                .done(function (data) {
+                    // console.log(data);
+                    toggleTaskForm();
+                    let date = $('#top-date').text();
+                    if (date == data.task.date) {
+                        let newTask = presentation(data.task);
+                        $(`#${data.task.time}`).prepend(newTask);
+                        deleteTask($(' .task-delete-links', newTask));
+                    }
+
+                })
+                .fail((err) => {
+                    console.log(err.responseText);
+                });
+        }
+    });
 });
+
+
 $('.fa-calendar-plus').click(toggleTaskForm);
 $('#cancel-task-button').click(toggleTaskForm);
 
@@ -103,16 +128,13 @@ $('.task').click(function () {
 
 $('.search-button').click(function (event) {
     // event.preventDefault();
-    let formData = $('#search-teacher-form').serialize(); 
+    let formData = $('#search-teacher-form').serialize();
     // var selectedTeacher = $('#teacher-selector').children("option:selected").val();
-    // formDate = formData.substr(12);
-    console.log("from data at jquery",formData);
     $.get('/get-tasks', formData)
         .done(function (tasks) {
-            console.log("data at search jquery",tasks);
             $('.task-list').html("");
             toggleTasksDiv();
-            for(task of tasks.data) {
+            for (task of tasks.data) {
                 let newListItem = listDom(task);
                 $(`.task-list`).prepend(newListItem);
                 deleteTask($(' .task-delete-links', newListItem));
@@ -139,6 +161,6 @@ function listDom(task) {
 </li>`);
 }
 
-$('.close-tasks').click(function(){
+$('.close-tasks').click(function () {
     toggleTasksDiv();
 });
