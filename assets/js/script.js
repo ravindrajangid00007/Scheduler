@@ -4,7 +4,18 @@ var notyf = new Notyf({
     position: {
         x: 'right',
         y: 'top'
-    }
+    },
+    types: [
+        {
+            type: 'warning',
+            background: 'orange',
+            icon: {
+                className: 'fa-exclamation',
+                tagName: 'i',
+                text: 'warning'
+            }
+        }
+    ]
 });
 
 function toggleTeacherForm() {
@@ -37,7 +48,10 @@ $('.date').click(function () {
                 }
                 notyf.success('Your tasks are here');
             } else {
-                notyf.error('Not a sigle task is scheduled');
+                notyf.open({
+                    type: 'warning',
+                    message: 'Not a single task is schedule here'
+                  });
             }
         })
         .fail(function (err) {
