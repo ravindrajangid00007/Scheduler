@@ -1,3 +1,12 @@
+var notyf = new Notyf({
+    duration: 1000,
+    dismissible: true,
+    position: {
+        x: 'right',
+        y: 'top'
+    }
+});
+
 function toggleTeacherForm() {
     $(".teacher-create-form").toggleClass("show-form");
 }
@@ -26,8 +35,9 @@ $('.date').click(function () {
                     $(`#${task.time}`).prepend(dom);
                     deleteTask($(' .task-delete-links', dom));
                 }
+                notyf.success('Your tasks are here');
             } else {
-
+                notyf.error('Not a sigle task is scheduled');
             }
         })
         .fail(function (err) {
@@ -57,6 +67,7 @@ let deleteTask = function (deleteLink) {
                 // console.log(data);
                 $(`#task-${data.task_uuid}`).remove();
                 $(`#task-list-${data.task_uuid}`).remove();
+                notyf.success('Task delete successfully');
             })
             .fail((err) => {
                 console.log(err.responseText);
@@ -84,6 +95,7 @@ $('#add-task-button').click(function () {
                     if (task.time == time && task.date == date) {
                         //message teacher class is overlapping 
                         teacherOverlapExist = true;
+                        notyf.error('Your tasks are overlapping');
                         toggleTaskForm();
                     }
                 }
@@ -106,7 +118,7 @@ $('#add-task-button').click(function () {
                         $(`#${data.task.time}`).prepend(newTask);
                         deleteTask($(' .task-delete-links', newTask));
                     }
-
+                    notyf.success('Task added successfully');
                 })
                 .fail((err) => {
                     console.log(err.responseText);
@@ -137,6 +149,7 @@ $('.search-button').click(function (event) {
         .done(function (tasks) {
             $('.task-list').html("");
             toggleTasksDiv();
+            notyf.success('All tasks of selected Teacher');
             for (task of tasks.data) {
                 let newListItem = listDom(task);
                 $(`.task-list`).prepend(newListItem);

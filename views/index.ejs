@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
@@ -71,12 +72,12 @@
             </ul>
             <div class="add-teacher">
                 <i class="fas fa-user-plus" id="add-teacher"><span class="titles">ADD TEACHER</span></i>
-                    <form action="/create-teacher" method="POST" class="teacher-create-form">
-                        <i class="fas fa-times" class="form-close-icon"></i>
-                        <input type="text" name="name" placeholder="Enter teacher name" required>
-                        <input type="email" name="email" placeholder="Enter teacher's email" required>
-                        <input type="submit" value="add">
-                    </form>
+                <form action="/create-teacher" method="POST" class="teacher-create-form">
+                    <i class="fas fa-times" class="form-close-icon"></i>
+                    <input type="text" name="name" placeholder="Enter teacher name" required>
+                    <input type="email" name="email" placeholder="Enter teacher's email" required>
+                    <input type="submit" value="add">
+                </form>
             </div>
         </div>
         <div class="single-day">
@@ -140,6 +141,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 
