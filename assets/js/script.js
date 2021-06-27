@@ -8,7 +8,7 @@ var notyf = new Notyf({
     types: [
         {
             type: 'warning',
-            background: 'red' ,
+            background: 'orange' ,
             icon: {
                 className: 'fas fa-exclamation',
                 tagName: 'i',
