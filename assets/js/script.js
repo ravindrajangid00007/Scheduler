@@ -9,7 +9,7 @@ function toggleTasksDiv() {
 }
 $('#add-teacher').click(toggleTeacherForm);
 
-$('.fa-times').click(toggleTeacherForm);
+$('.form-close-icon').click(toggleTeacherForm);
 
 $('.date').click(function () {
     let date = $(this).attr('date')
