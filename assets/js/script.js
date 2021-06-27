@@ -1,5 +1,5 @@
 var notyf = new Notyf({
-    duration: 0,
+    duration: 1000,
     dismissible: true,
     position: {
         x: 'right',
