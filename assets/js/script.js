@@ -1,5 +1,5 @@
 var notyf = new Notyf({
-    duration: 1000,
+    duration: 0,
     dismissible: true,
     position: {
         x: 'right',
@@ -8,11 +8,12 @@ var notyf = new Notyf({
     types: [
         {
             type: 'warning',
-            background: 'orange',
+            background: 'red' ,
             icon: {
-                className: 'fa-exclamation',
+                className: 'fas fa-exclamation',
                 tagName: 'i',
-                text: 'warning'
+                // text: 'warning',
+                color: 'white'
             }
         }
     ]
